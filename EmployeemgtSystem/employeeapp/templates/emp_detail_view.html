@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+        <p>{{employee.ename}}</p>
+        <p>{{employee.email}}</p>
+        <a href="{%url 'update_view' employee.id%}">Edit</a>
+        <a href="{%url 'delete_view' employee.id%}">Delete</a>
+{%endblock%}

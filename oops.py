@@ -11,15 +11,15 @@
 # person2 = Person()
 # person2.display()
 
-class Person:
-    def __init__(self,p_name,p_age,p_email):
-        self.p_name = p_name
-        self.p_age = p_age
-        self.p_email = p_email
+# class Person:
+#     def __init__(self,p_name,p_age,p_email):
+#         self.p_name = p_name
+#         self.p_age = p_age
+#         self.p_email = p_email
 
 
-p1 = Person("dhruv",19,"dhruv@gmail.com")
-print(p1.p_name)
+# p1 = Person("dhruv",19,"dhruv@gmail.com")
+# print(p1.p_name)
 
 # p2 = Person()
 # p2.p_name = 'deepika'
@@ -180,3 +180,186 @@ print(p1.p_name)
 # tm.addition(12,12)
 
 
+# class Person:
+#     def __init__(self,name,age,email):
+#         self.name = name
+#         self.age = age
+#         self.email = email
+
+#     def display_info(self):
+#         print("person name: ",self.name,"age: ",self.age,"email: ",self.email)
+    
+
+# class Employee(Person):
+#     def acceptEmployeeInfo(self):
+#         self.emp_id = int(input("Enter your Emp_id: "))
+#         self.job = input("enter your job: ")
+#         self.sal = int(input("Enter your basic salary: "))
+
+#     def calculateGrossSalary(self):
+#         self.grossSal = self.sal *12
+#         print("Total salary of employee : ",self.grossSal)
+    
+#     def displayEmployee(self):
+#         print("Employee id : ",self.emp_id, "job : ",self.job,"basic salary : ",self.sal)
+
+
+
+# emp1 = Employee("dhruv",30,"dhruv@gmail.com")
+# emp1.display_info()
+# emp1.acceptEmployeeInfo()
+# emp1.display_info()
+# emp1.calculateGrossSalary()
+
+# class Person:
+#     def __init__(self,name,email):
+#         self.name = name
+#         self.email = email
+    
+#     def displayPersonInfo(self):
+#         print("Person name :", self.name, "and email :", self.email)
+
+
+# class Student(Person):
+#     def __init__(self, name, email,m1,m2,m3):
+#         super().__init__(name, email)
+#         self.m1 = m1
+#         self.m2 = m2
+#         self.m3 = m3
+    
+#     def calculateTotal(self):
+#         self.total = self.m1 + self.m2 + self.m3
+#         print("Total of marks: ",self.total)
+
+
+# stud1  = Student("dhruv","dhruv@gmail.com",20,30,40)
+# stud1.displayPersonInfo()
+# stud1.calculateTotal()
+
+# class Teacher:
+#     def __init__(self,name,subject):
+#         self.name = name
+#         self.subject = subject
+    
+#     def displayTeacherDetails(self):
+#         print("Teacher name : ",self.name,"subject : ",self.subject)
+    
+
+# class Dancer:
+#     def __init__(self,name,academy):
+#         self.name = name
+#         self.academy = academy
+
+#     def displayDanceDetails(self):
+#         print("Dancer name :",self.name,"academy: ",self.academy)
+    
+
+# class DanceTeacher(Teacher,Dancer):
+#     def __init__(self, name, subject,academy):
+#         Teacher.__init__(self,name, subject)
+#         Dancer.__init__(self,name, academy)
+
+
+# danceteacher1 = DanceTeacher("dhruv","hiphop","ABCD")
+# danceteacher1.displayTeacherDetails()
+# danceteacher1.displayDanceDetails()
+
+# multilevel
+# class Person:
+#     def __init__(self,name):
+#         self.name = name
+    
+#     def displayname(self):
+#         print("Name of the person is : ", self.name)
+    
+
+# class Employee(Person):
+#     def __init__(self, name,company):
+#         super().__init__(name)
+#         self.company = company
+    
+#     def displayEmp(self):
+#         print("the name of the employee is ",self.name,"and the company is ",self.company)
+
+# class Freelancer(Employee):
+#     def __init__(self, name, company,sal):
+#         super().__init__(name, company)
+#         self.sal = sal
+    
+#     def displayFreelance(self):
+#         print("the employee name is ",self.name,"and the company is ",
+#               self.company,"and the salary is ",self.sal)
+
+
+
+# free1 = Freelancer("dhruv","tata",30000)
+# free1.displayEmp()
+# free1.displayFreelance()
+# free1.displayname()
+# emp1 = Employee("dhruv","google")
+# emp1.displayname()
+# emp1.displayEmp()
+# hierarachal
+
+# class Person:
+#     def __init__(self,name):
+#         self.name = name
+    
+#     def displayname(self):
+#         print("Name of the person is : ", self.name)
+    
+# class Student(Person):
+#     def __init__(self, name,rollno,subject):
+#         super().__init__(name)
+#         self.rollno = rollno
+#         self.subject = subject
+    
+#     def displayStudentsInfo(self):
+#         print("the name of the student is ",self.name,"and the roll no: ",
+#               self.rollno,"and the subject is ",self.subject)
+
+# class Employee(Person):
+#     def __init__(self, name,dept):
+#         super().__init__(name)
+#         self.dept = dept
+
+#     def displayEmployee(self):
+#         print("the name of the employee is ",self.name,"and the dept is ",self.dept)
+
+
+# stud1 = Student("dhruv",20,"maths")
+# stud1.displayname()
+# stud1.displayStudentsInfo()
+# emp1 = Employee("dhruv","developer")
+# emp1.displayname()
+# emp1.displayEmployee()
+
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start():
+        pass
+    
+    def stop():
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        print("car engine started")
+    
+    def stop(self):
+        print("car engine stopped")
+
+
+class Bike(Vehicle):
+    pass
+
+
+car1 = Car()
+car1.start()
+car1.stop()
+
+bike1 = Bike()
+bike1.start()
+bike1.stop()

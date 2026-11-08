@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+</head>
+<body>
+    <h1>Create a New Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+<h1>Create a New Post</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Post</button>
+</form>
+
+
+<h1>Your Posts</h1>
+<ul>
+    {% for post in posts %}
+        <li>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <a href="{% url 'post_update' post.id %}">Edit</a>
+            <a href="{% url 'post_delete' post.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'post_create' %}">Create New Post</a>
+
+
+
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to delete "{{ object.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+</form>
+<a href="{% url 'post_list' %}">Cancel</a>

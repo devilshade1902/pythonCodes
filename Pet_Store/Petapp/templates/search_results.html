@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    {% if query %}
+    <p>
+        The searched data: {{query}}
+    </p>
+    <p>
+        The pet information:
+        <br>
+        {% for pet in pet_manager %}
+        pet name : {{pet.name}}
+        pet age : {{pet.age}}
+        pet breed : {{pet.breed}}
+        pet price : {{pet.price}}
+        {% endfor %}
+    </p>
+    {% endif %}
+
+{% endblock %}

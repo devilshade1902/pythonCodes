@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1 class="flex">Products List-1</h1>
+    <a href="{% url 'create_product' %}" class="btn-dark btn">Create product</a>
+</div>
+        <p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>category</th>
+                        <th>Price</th>
+                        <th>quantity in stock</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in pet_products %}
+                    <tr>
+                        <td><a href="{% url 'product_detail_view' product.id %}">{{ product.product_name }}</a></td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.quantity_in_stock}}</td>
+                        <td>{{ product.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </p>
+{%endblock%}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4 d-flex flex-column align-items-center">
+        <h1 class="mb-4">product Details</h1>
+        <div class="card" style="width: 18rem;">
+                <h5 class="card-header">{{product.product_name }}</h5>
+                <div class="card-body">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="product Image">
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ₹{{ product.price}}</p>
+                        <p class="card-text"><strong>Quantity:</strong> {{ product.quantity_in_stock }}</p>
+                        <div class="d-flex justify-content-between"> 
+                                <a href="{% url 'update_product' product.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'product_delete' product.id %}" class="btn btn-danger">Delete</a>
+                                <a href="#" class="btn btn-dark">Add to cart</a>
+                        </div>
+                </div>
+        </div>
+</div>
+
+{%endblock%}

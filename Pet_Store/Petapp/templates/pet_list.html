@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h1 class="flex">Pets List-1</h1>
+    <a href="{% url 'create_pet' %}" class="btn btn-dark">Create Pet</a>
+</div>
+<p>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr>
+            <td><a href="{% url 'pet_detail_view' pet.id %}">{{ pet.name }}</a></td>
+            <td>{{ pet.breed }}</td>
+            <td>{{ pet.age }}</td>
+            <td>{{ pet.price }}</td>
+            <td>{{ pet.type }}</td>
+            <td>{{ pet.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</p>
+{%endblock%}
